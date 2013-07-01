@@ -1,0 +1,89 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>Alarms</title>
+<script type="text/javascript" charset="utf-8" src="cordova-2.5.0.js"></script>
+<script type="text/javascript" charset="utf-8" src="js/Alarms.js"></script>
+<link rel="stylesheet" type="text/css" href="css/index.css">
+<script type="text/javascript" charset="utf-8">
+
+
+
+    // Wait for Cordova to load
+    //
+    document.addEventListener("deviceready", onDeviceReady, false);
+
+    // Cordova is ready
+    //
+    function onDeviceReady() {
+        // Empty
+    }
+    //Play Notification 5 times
+    function playBeep1() {
+        navigator.notification.beep(5);
+    }
+    //Play Notification 10 times
+    function playBeep2() {
+            navigator.notification.beep(10);
+        }
+    //Play Notification 15 times
+    function playBeep3() {
+                navigator.notification.beep(15);
+            }
+
+    // Vibrate for 2 seconds
+    function vibrate1() {
+        navigator.notification.vibrate(2000);
+    }
+    // Vibrate for 4 seconds
+    function vibrate2() {
+            navigator.notification.vibrate(4000);
+        }
+    // Vibrate for 4 seconds
+    function vibrate3() {
+                navigator.notification.vibrate(4000);
+            }
+	
+    function sleep_until (seconds) {
+   var max_sec = new Date().getTime();
+   while (new Date() < max_sec + seconds * 1000) {}
+   return true;
+	}
+    
+    
+    </script>
+
+</head>
+<body>
+	
+    </br>
+    </br>
+    </br>
+    <center>
+<form action="" method="">
+<f1>Current Time: <span id="alarm_time"></span></><f1></center>
+</br>
+</br>
+<center><b><p2><div>Set Alarm:</div></p2></b>
+</br>
+<b><p2><span><select></select> Hour</span> <span><select></select> Minutes</span> <span></div></p2></b>
+</br>
+</br>
+</br>
+<input type="image" src="images/Set Alarm.jpg" id="submitbutton" width="190" /> &nbsp;&nbsp;&nbsp;<input type="image" src="images/reset.jpg" id="resetbutton" width="130" /></center>
+<br/>
+</form>
+
+
+
+
+<script type="text/javascript">
+
+alarmsystem.init()
+
+</script>
+
+	
+	
+</body>
+</html>

@@ -1,0 +1,158 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>DART</title>
+<link href="css/index.css" rel="stylesheet" type="text/css" />
+
+
+<script>
+//these variables would be aquired from the DART APIs in the actual app
+//there would also be only 4 variables and we would have get methods to get the information
+var station1="Howth";
+var time1="5 mins";
+var station2="Greystones";
+var time2="7 mins";
+var station3="Malahide";
+var time3="12 mins";
+var station4="Bray";
+var time4="16 mins";
+var station5="Malahide";
+var time5="3 mins";
+var station6="Bray";
+var time6="5 mins";
+var station7="Greystones";
+var time7="9 mins";
+var station8="Howth";
+var time8="13 mins";
+var station9="Greystones";
+var time9="8 mins";
+var station10="Howth";
+var time10="11 mins";
+var station11="Malahide";
+var time11="17 mins";
+var station12="Greystones";
+var time12="18 mins";
+
+function changeTimes() {
+
+
+//these variables get the station name from the select box below
+	var s = document.getElementById('station');
+	var station = s.options[s.selectedIndex].value;
+	
+	//this would be more expansive if we had more time and could have gotten the DART APIs 
+	if(station<310){
+	document.getElementById("r1c1").innerHTML=(station1);
+	document.getElementById("r1c2").innerHTML=(time1);
+	document.getElementById("r2c1").innerHTML=(station2);
+	document.getElementById("r2c2").innerHTML=(time2);
+	document.getElementById("r3c1").innerHTML=(station3);
+	document.getElementById("r3c2").innerHTML=(time3);
+	document.getElementById("r4c1").innerHTML=(station4);
+	document.getElementById("r4c2").innerHTML=(time4);
+	}
+	else if(station>309 && station<320){
+	document.getElementById("r1c1").innerHTML=(station5);
+	document.getElementById("r1c2").innerHTML=(time5);
+	document.getElementById("r2c1").innerHTML=(station6);
+	document.getElementById("r2c2").innerHTML=(time6);
+	document.getElementById("r3c1").innerHTML=(station7);
+	document.getElementById("r3c2").innerHTML=(time7);
+	document.getElementById("r4c1").innerHTML=(station8);
+	document.getElementById("r4c2").innerHTML=(time8);
+	}
+	else if (station>319){
+	document.getElementById("r1c1").innerHTML=(station9);
+	document.getElementById("r1c2").innerHTML=(time9);
+	document.getElementById("r2c1").innerHTML=(station10);
+	document.getElementById("r2c2").innerHTML=(time10);
+	document.getElementById("r3c1").innerHTML=(station11);
+	document.getElementById("r3c2").innerHTML=(time11);
+	document.getElementById("r4c1").innerHTML=(station12);
+	document.getElementById("r4c2").innerHTML=(time12);
+	}
+}
+</script>
+
+
+</head>
+
+<body>
+</br>
+
+</br>
+</br>
+<div class="container">
+  <div class="content"><center>
+   <f1><b>DART</b></f1>
+    <center>
+      <p>Station:
+	  <select id="station">
+	<option value="301">Malahide</option>
+	<option value="302">Portmarnock</option>
+	<option value="303">Clongriffin</option>
+	<option value="304">Howth</option>
+	<option value="305">Sutton</option>
+	<option value="306">Bayside</option>
+	<option value="307">Howth Juncion</option>
+	<option value="308">Kilbarrack</option>
+	<option value="309">Raheny</option>
+	<option value="310">Harmonstown</option>
+	<option value="311">Killester</option>
+	<option value="312">Clontarf Road</option>
+	<option value="313">Connolly</option>
+	<option value="314">Tara Street</option>
+	<option value="315">Pearse</option>
+	<option value="316">Grand Canal</option>
+	<option value="317">Lansdowne</option>
+	<option value="318">Sandymount</option>
+	<option value="319">Sydney Parade</option>
+	<option value="320">Booterstown</option>
+	<option value="321">Blackrock</option>
+	<option value="322">Seapoint</option>
+	<option value="323">Salthill</option>
+	<option value="324">Dun Laoghaire</option>
+	<option value="325">Sandycove</option>
+	<option value="326">Glengeary</option>
+	<option value="327">Dalkey</option>
+	<option value="328">Killiney</option>
+	<option value="329">Shankhill</option>
+	<option value="330">Bray</option>
+	<option value="331">Greystones</option>
+      </select></p>
+      </center>
+      <br/>
+      <br/>
+	  <center><a href="#"onclick="changeTimes();"><img src="images/stationchange.jpg" alt="Change Station" width="350" height="100" /></a></center>
+	  
+    <br/>
+	<br/>
+    <center><table width="340" border="0">
+      <tr>
+    <th><b>Destination</b></th>
+    <th><b>Time</b></th>
+  </tr>
+  <tr>
+    <td id="r1c1">GreyStones</td>
+    <td id="r1c2">5 Mins</td>
+  </tr>
+  <tr>
+    <td id="r2c1">Howth</td>
+    <td id="r2c2">7 Mins</td>
+  </tr>
+  <tr>
+    <td id="r3c1">Malahide</td>
+    <td id="r3c2">11 Mins</td>
+  </tr>
+  <tr>
+    <td id="r4c1">Greystones</td>
+    <td id="r4c2">14 Mins</td>
+  </tr>
+</table>
+</center>
+
+    <!-- end .content --></div>
+  <!-- end .container --></div></center>
+</body>
+</html>

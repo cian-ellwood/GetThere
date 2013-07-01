@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Check In</title>
+
+    <link rel="stylesheet" type="text/css" href="css/index.css" />
+    <script type="text/javascript" charset="utf-8" src="cordova-2.5.0.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/Alarms.js"></script>
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?v=3.exp&amp;sensor=true&amp"></script>
+    
+    <script type="text/javascript" charset="utf-8">
+
+    // Wait for Cordova to load
+    //
+    document.addEventListener("deviceready", onDeviceReady, false);
+
+    // Cordova is ready
+    //
+    function onDeviceReady() {
+        navigator.geolocation.getCurrentPosition(onSuccess, onError);
+    }
+
+    // onSuccess Geolocation
+    //
+    function onSuccess(position) {
+    sleep_until(5);
+    function sleep_until (seconds) {
+   		var max_sec = new Date().getTime();
+   		while (new Date() < max_sec + seconds * 1000) {}
+   		return true;
+		}
+		//Google Maps API
+        var myLocation = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+        var mapDiv = document.getElementById('googlemaps');
+        var map = new google.maps.Map(mapDiv, {
+          center: myLocation,
+          zoom: 17,
+          mapTypeId: google.maps.MapTypeId.ROADMAP,
+          mapTypeControl: false,
+          navigationControl: true,
+    	  navigationControlOptions: {
+     	  style: google.maps.NavigationControlStyle.SMALL
+        }
+  });
+  		//Google Marker
+     	var marker = new google.maps.Marker({
+    	map: map,
+    	position: map.getCenter(),
+    	draggable: false
+  		});
+  		
+  		var contentString =
+      '<p><b>National College of Ireland</b></p>'+
+      '<p>Mayor Street</p>'+
+      '<p>Dublin 1</p>';
+  		
+        var infoWindow = new google.maps.InfoWindow({
+          position: map.getCenter(),
+          content: contentString
+        });
+        
+        infoWindow.open(map, marker);
+
+		
+        google.maps.event.addDomListener(window, 'load');
+        
+        }
+
+
+    // onError Callback receives a PositionError object
+    //
+    function onError(error) {
+        alert('code: '    + error.code    + '\n' +
+                'message: ' + error.message + '\n');
+    }
+
+
+// alert dialog dismissed
+    function alertDismissed() {
+    }
+
+    // Show a custom alertDismissed
+    //
+    function showAlert() {
+   		var timeobj=new Date();
+   		var placeName = "National College of Ireland";
+   		var mins =(timeobj.getMinutes());
+   		if (mins<10){
+		var time =(timeobj.getHours())+":0"+(timeobj.getMinutes());
+		}
+		else{
+		var time =(timeobj.getHours())+":"+(timeobj.getMinutes());
+		}
+		
+        navigator.notification.alert(
+            'You are checked in at ' +'\n'+placeName+' at '+time+' ',  // Alert content
+            alertDismissed,         // callback request
+            'Check In Successful',  // Title of Alert
+            'Done'                  // Name of Button
+        );
+    }
+    </script>
+  </head>
+  <body>
+    <div id="googlemaps" style="width: auto; height: 400px"><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><center><img src="images/ajax-loader.gif"><h1><strong>Locating You<br/>Please Wait...</strong></h1></center></div>
+    <br/>
+    <br/>
+    <center><a href="#"onclick="showAlert();"><img src="images/checkinbtn.jpg" alt="Check In" width="350" height="100" /></a></center>
+  </body>
+</html>
